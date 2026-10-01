@@ -4,8 +4,13 @@
 
 ### AeroCpu is my 16 bit cpu simulator written in C
 ---
+
 > [!NOTE]
 > This is a learning project
+
+> [!WARNING]
+> This project isnt finished
+
 ---
 </div>
 
