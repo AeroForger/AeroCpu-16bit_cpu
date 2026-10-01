@@ -83,6 +83,11 @@ void cpu_execute(struct CPU *cpu, const struct Instruction *instruction) {
             cpu->reg[instruction->dest] = instruction->immediate;
             break;
         case 41:
+            if (instruction->jump_address >= cpu->instruction_count){
+                printf("Invalid jump address: %u\n", (unsigned int)instruction->jump_address);
+                cpu->halted = true;
+                return;
+            }
             cpu->pc = instruction->jump_address;
             break;
         case 42:

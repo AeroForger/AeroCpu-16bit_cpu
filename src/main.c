@@ -17,7 +17,9 @@ int main(void) {
         {.dest = 2, .src1 = 0, .src2 = 1, .opcode = 48},
         {.dest = 2, .src1 = 0, .src2 = 1, .opcode = 49},
     };
-    while (!cpu.halted && cpu.pc < sizeof(program) / sizeof(program[0])) {
+    cpu.instruction_count = sizeof(program) / sizeof(program[0]);
+
+    while (!cpu.halted && cpu.pc < cpu.instruction_count) {
         uint16_t current_pc = cpu.pc;
         cpu.pc++;
         cpu_execute(&cpu, &program[current_pc]);

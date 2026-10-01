@@ -3,13 +3,14 @@
 
 #include<stdint.h>
 #include<stdbool.h>
-
+#include<stddef.h>
 
 struct CPU {
     uint16_t reg[8];
     uint16_t pc;
     uint16_t sp;
     uint16_t flags;
+    size_t instruction_count;
     bool halted;
 };
 struct Instruction {
@@ -19,7 +20,6 @@ struct Instruction {
     uint16_t src2;
     uint16_t immediate;
     uint16_t jump_address;
-    uint16_t commands;
 };
 void reg_reset(struct CPU *cpu);
 void pc_reset(struct CPU *cpu);
